@@ -1,0 +1,30 @@
+{% extends 'index.html'%}
+{% block title %}
+    <br/>
+    <h4>Buscar Audios</h4>
+    <hr>
+{% endblock %}
+{% block body %}
+    {% if formulario.errors %}
+
+    <p style="color:red;">Datos Incorrectos</p>
+
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <input type="submit" value="Enviar" />
+
+    </form>
+
+    {% for value in audios %}
+        <ul>
+            <li>Nombre: {{value.nombre}}</li>
+            <li>Tipo: {{value.tipo}}</li>
+            <li>Fecha de Creacion: {{value.fecha_creacion}}</li>
+            <li>Duración: {{value.duracion}}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}

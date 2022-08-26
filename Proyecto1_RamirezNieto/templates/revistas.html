@@ -1,0 +1,36 @@
+{% extends 'index.html'%}
+
+{% block title %}
+    <br/>
+    <h4>Lista de Revistas</h4>
+    <hr>
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <hr>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Fecha Creacion</th>
+            <th scope="col">Editorial</th>
+        </tr>
+        </thead>
+        <tbody>
+            
+            {% for value in revistas %}
+            <tr>
+                <td>{{value.nombre}}</td>
+                <td>{{value.tipo}}</td>
+                <td>{{value.fecha_creacion}}</td>
+                <td>{{value.editorial}}</td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
